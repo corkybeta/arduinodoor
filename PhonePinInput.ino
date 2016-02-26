@@ -40,7 +40,7 @@ void loop() {
   // read the analog in value:
   sensorValueOZ = analogRead(analogInOZ);
   // map it to the range of the analog out:
-  if (sensorValueOZ >= 200) {
+  if (sensorValueOZ >= 300) {
     outputValueOZ = HIGH;
   }
   else {
@@ -48,8 +48,8 @@ void loop() {
   }
   digitalWrite(ledOutOZ, outputValueOZ);
 
-  sensorValueOT = analogRead(analogInOZ);
-  if (sensorValueOT <= 200) {
+  sensorValueOT = analogRead(analogInOT);
+  if (sensorValueOT <= 300) {
     outputValueOT = HIGH;
   }
   else {
@@ -70,5 +70,5 @@ void loop() {
   // wait 10 milliseconds before the next loop
   // for the analog-to-digital converter to settle
   // after the last reading:
-  delay(10);
+  delay(100);
 }
