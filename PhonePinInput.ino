@@ -21,8 +21,9 @@
 // to the pins used:
 const int analogInOZ = A0;  // Analog input pin OZ
 const int analogInOT = A1;  // Analog input pin OT
-const int ledOutOZ = 12; // LED for OZ
-const int ledOutOT = 13; // LED for OT
+const int RED = 3;
+const int GREEN = 5;
+const int BLUE = 6;
 
 int sensorValueOZ = 0;        // value read from the pot
 int sensorValueOT = 0;
@@ -32,8 +33,8 @@ int outputValueOT = LOW;
 void setup() {
   // initialize serial communications at 9600 bps:
   Serial.begin(9600);
-  pinMode(ledOutOZ, OUTPUT);
-  pinMode(ledOutOT, OUTPUT);
+  pinMode(RED, OUTPUT);
+  pinMode(GREEN, OUTPUT);
 }
 
 void loop() {
@@ -46,7 +47,7 @@ void loop() {
   else {
     outputValueOZ = LOW;
   }
-  digitalWrite(ledOutOZ, outputValueOZ);
+  digitalWrite(RED, outputValueOZ);
 
   sensorValueOT = analogRead(analogInOT);
   if (sensorValueOT <= 300) {
@@ -55,7 +56,7 @@ void loop() {
   else {
     outputValueOT = LOW;
   }
-  digitalWrite(ledOutOT, outputValueOT);
+  digitalWrite(GREEN, outputValueOT);
 
   // print the results to the serial monitor:
   Serial.print("sensor OZ = ");
